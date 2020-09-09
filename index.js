@@ -30,6 +30,12 @@ app.get('/api/persons', (req, res) => {
     res.json(phonenumbers)
 })
 
+app.get('/info', (req, res) => {
+    const length = phonenumbers.length
+    const time = Date().toLocaleString()
+    res.send(`<p>Phonebook has info for ${length} people.</p><p>${time}</p>`)
+})
+
 
 
 
