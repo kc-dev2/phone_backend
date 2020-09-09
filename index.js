@@ -70,6 +70,14 @@ app.post('/api/persons', (req, res) => {
         })
     }
 
+    const search = phonenumbers.find(per => body.name === per.name)
+
+    if(search) {
+        return res.status(400).json({
+            error: "name must be unique"
+        })
+    }
+
     const newPhone = {
         name: body.name,
         number: body.number,
